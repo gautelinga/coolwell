@@ -37,23 +37,29 @@ To run with the parameters like in Fig. 2a of [Baldelli et al. (2022)], issue th
 ```
 mpiexec -np 4 python3 steady.py -res 64 -Lx 120.0 -b 30.0 -H 0.5 -fx 0.01 -Ttop 1e-06 -nutop 0.015 -nubtm 0.015 -kappa 0.000308
 ```
-    
-To run with the parameters like in Fig. 2e of [Baldelli et al. (2022)], issue the following command:
- 
-```
-mpiexec -np 4 python3 steady.py -res 64 -Lx 120.0 -b 30.0 -H 0.5 -fx 0.01 -Ttop 8e-06 -nutop 0.015 -nubtm 0.015 -kappa 0.000308
-```
-  
 To run with the parameters like in Fig. 3d of [Baldelli et al. (2022)], issue the following command:
- 
+
 ```
 mpiexec -np 4 python3 steady.py -res 64 -Lx 120.0 -b 30.0 -H 0.5 -fx 0.01 -Ttop 7e-04 -nutop 0.0145 -nubtm 0.0145 -kappa 0.00029
+```  
+  
+To run with the parameters like in the [image](#example_image) below, issue the following command:
+ 
+ <a name="example_code">
+    
 ```
+mpiexec -np 4 python3 steady.py -res 64 -Lx 120.0 -b 30.0 -H 0.5 -fx 0.001 -Ttop 1e-05 -nutop 0.0015 -nubtm 0.0015 -kappa 0.0015
+```
+</a>
   
  ## Visualising the results
-The simulations produce the files `U.xdmf` for the velocity field and `T.xdmf` for the temperature field which are best visualized using [ParaView]:
-[image of output]
-
+The simulations produce the files `U.xdmf` for the velocity field and `T.xdmf` for the temperature field which are best visualized using [ParaView](https://www.paraview.org/). The image below is created in Paraview from the `U.xdmf` and `T.xdmf` files that result from running [this code](#example_code). It shows the temperature field and the stream tracer filter applied to the velocity field.
+  
+ <a name="example_image">
+          
+<img src="https://github.com/gautelinga/coolwell/blob/96aecec74d5329c62e82e57a6f4d502d5d3771aa/Images/Tfield_streamlines_RT0.001.png" width="300">
+                                                                                                  </a>
+  
 ...
 
 The effective heat conduction is computed at the end of each simulation, for example the command
