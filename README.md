@@ -62,9 +62,20 @@ The simulations produce the files `U.xdmf` for the velocity field and `T.xdmf` f
   
 ...
 
-The effective heat conduction is computed at the end of each simulation, for example the command
-```
-(either referenced above or a new one)
-```
-yields the result `k_eff=X`.
+The code also produces the file `parameters.dat` which contains a few quantities calculated from the temperature and velocity fields:
+  | quantity | name in `parameters.dat` | description | name in article [^1]|
+  |----------|--------------------------|-------------|----------------------|
+  | &lt;&#124;<strong>u</strong>&#124;&gt;<sub>well | `u_b` | magnitude of the velocity averaged over the square well | U |
+  | &lt;&#124;<strong>u</strong>&#124;&gt;<sub>chnl |`u_0`| magnitude of the velocity averaged over the channel | n/a |
+  | Re<sub>well</sub> | `Re_b` | Reynold number in the well | Re |
+  | Re<sub>chnl</sub> | `Re_0` | Reynold number in the channel | n/a |
+  | Ra | `Ra` | Rayleigh number | n/a |
+  | Pe<sub>well | `Pe` | Péclet number in the well | Pe |
+  | R<sub>T | `RT` | ratio between driving and buoyancy force | n/a |
+  | Nu | `Nu` | Nusselt number at the bottom surface | Nu |
+  | Q | `qy` | total heat flux density across the bottom surface | n/a |
+  
+  
+  The file `parameters.dat` also contains the full line of code needed to run the simulation that created it.
+  
 </md>
