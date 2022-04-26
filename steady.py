@@ -198,6 +198,6 @@ with df.XDMFFile(mesh.mpi_comm(),
 
 if rank == 0:
    with open("{}/parameters.dat".format(subfolder),"w") as file:
-      file.write("u_b = {}\nu_0 = {}\nRe_b = {}\nR_0 = {}\nRa = {}\nPe = {}\nRT = {}\nNu = {}\nqy = {}".format(u_b,u_0,Re,Re_0,Ra,Pe,RT,Nu,qy))
+      file.write("u_b = {}\nu_0 = {}\nRe_b = {}\nRe_0 = {}\nRa = {}\nPe = {}\nRT = {}\nNu = {}\nqy = {}".format(u_b,u_0,Re,Re_0,Ra,Pe,RT,Nu,qy))
       file.write("\nmpiexec -n 4 python3 steady.py -res {} -Lx {} -b {} -H {} -fx {} -Ttop {} -Tbtm {} -alpha {} -nutop {} -nubtm {} -kappa {}".format(args.res, args.Lx, args.b, args.H, args.fx, args.Ttop, args.Tbtm, args.alpha, args.nutop, args.nubtm, args.kappa))
    
