@@ -70,7 +70,7 @@ The code also produces the file `parameters.dat` which contains a few quantities
   | Re<sub>well</sub> | `Re_b` | Reynold number in the well | Re |
   | Re<sub>chnl</sub> | `Re_0` | Reynold number in the channel | n/a |
   | Ra | `Ra` | Rayleigh number | n/a |
-  | Pe<sub>well | `Pe` | Péclet number in the well | Pe |
+  | Pe<sub>well | `Pe` | Péclet number in the well | n/a |
   | R<sub>T | `RT` | ratio between driving and buoyancy force | n/a |
   | Nu | `Nu` | Nusselt number at the bottom surface | Nu |
   | Q | `qy` | total heat flux density across the bottom surface | n/a |
