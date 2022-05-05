@@ -174,13 +174,15 @@ if rank == 0:
     print("RT = {}".format(RT))
     print("Nu = {}".format(Nu))
     print("qy = {}".format(qy))
+    print("Ri = {}".format(Ri))
+    print("Ri*Re = {}".format(Ri*Re))
 
 U_, P_, To_ = w_.split(deepcopy=True)
 U_.rename("u", "tmp")
 #U_.vector()[:] /= u_b
 To_.rename("T", "tmp")
 
-subfolder = "{}/RT{:.7f}_Re{:.5f}_Pe{:.5f}_b{}_H{}".format(folder, RT, Re, Pe, args.b, args.H)
+subfolder = "{}/RT{:.2e}_Re{:.2e}_Pe{:.2e}_b{}_H{}".format(folder, RT, Re, Pe, args.b, args.H)
 if rank == 0 and not os.path.exists(subfolder):
     os.makedirs(subfolder)
 
@@ -198,6 +200,6 @@ with df.XDMFFile(mesh.mpi_comm(),
 
 if rank == 0:
    with open("{}/parameters.dat".format(subfolder),"w") as file:
-      file.write("u_b = {}\nu_0 = {}\nRe_b = {}\nRe_0 = {}\nRa = {}\nPe = {}\nRT = {}\nNu = {}\nqy = {}".format(u_b,u_0,Re,Re_0,Ra,Pe,RT,Nu,qy))
+      file.write("u_b = {}\nu_0 = {}\nRe_b = {}\nRe_0 = {}\nRa = {}\nPe = {}\nRT = {}\nNu = {}\nqy = {}\nRi = {}\nRi*Re = {}".format(u_b,u_0,Re,Re_0,Ra,Pe,RT,Nu,qy, Ri, Ri*Re))
       file.write("\nmpiexec -n 4 python3 steady.py -res {} -Lx {} -b {} -H {} -fx {} -Ttop {} -Tbtm {} -alpha {} -nutop {} -nubtm {} -kappa {}".format(args.res, args.Lx, args.b, args.H, args.fx, args.Ttop, args.Tbtm, args.alpha, args.nutop, args.nubtm, args.kappa))
    
