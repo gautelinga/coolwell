@@ -74,6 +74,8 @@ The code also produces the file `parameters.dat` which contains a few quantities
   | R<sub>T | `RT` | ratio between driving and buoyancy force | n/a |
   | Nu | `Nu` | Nusselt number at the bottom surface | Nu |
   | Q | `qy` | total heat flux density across the bottom surface | n/a |
+  | Ri | `Ri` | Richardson number | Ri|
+  |Ri&middot;Re | `Ri*Re` | product of Richardson and Reynolds numbers | Ri&middot;Re |
   
   
   The file `parameters.dat` also contains the full line of code needed to run the simulation that created it.
